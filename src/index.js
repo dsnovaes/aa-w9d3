@@ -7,5 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector("figure.ttt")
   
   const view = new View(game,grid)
+  window.view = view
+
+    const positions = document.getElementById("grid")
+    positions.addEventListener("click",(e) => view.handleClick(e))
   
 });

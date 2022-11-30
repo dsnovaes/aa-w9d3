@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+ul {
+    display: flex;
+    width: 312px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+li {
+    border: 2px solid #000;
+    background-color: gray;
+    width: 100px;
+    height: 100px;
+}
+
+li:hover {
+    background-color: yellow;
+    cursor: pointer;
+    
+
+}
+

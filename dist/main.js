@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\"); // require appropriate file\nconst Game = __webpack_require__(/*! ../ttt_node/game.js */ \"./ttt_node/game.js\");// require appropriate file\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  // Your code here\n  const game = new Game()\n  const grid = document.querySelector(\"figure.ttt\")\n  \n  const view = new View(game,grid)\n  \n});\n\n\n//# sourceURL=webpack://w9d3/./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\"); // require appropriate file\nconst Game = __webpack_require__(/*! ../ttt_node/game.js */ \"./ttt_node/game.js\");// require appropriate file\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  // Your code here\n  const game = new Game()\n  const grid = document.querySelector(\"figure.ttt\")\n  \n  const view = new View(game,grid)\n  window.view = view\n\n    const positions = document.getElementById(\"grid\")\n    positions.addEventListener(\"click\",(e) => view.handleClick(e))\n  \n});\n\n\n//# sourceURL=webpack://w9d3/./src/index.js?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
   \*************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const { makeGrid } = __webpack_require__(/*! ../ttt_node/board.js */ \"./ttt_node/board.js\");\n\nclass View {\n  constructor(game, el) {\n    this.setupBoard()\n  }\n\n  setupBoard() {\n    const ul = document.createElement('ul');\n\n    const grid = document.querySelector(\"figure.ttt\")\n    grid.appendChild(ul);\n    for (let idx = 1; idx < 10; idx++){\n      let li = document.createElement('li');\n      li.setAttribute('data-position', idx);\n      ul.appendChild(li);\n    }\n  }\n  \n  bindEvents() {}\n\n  handleClick(e) {}\n\n  makeMove(square) {}\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack://w9d3/./src/ttt-view.js?");
+eval("const { makeGrid } = __webpack_require__(/*! ../ttt_node/board.js */ \"./ttt_node/board.js\");\n\nclass View {\n  constructor(game, el) {\n    this.setupBoard()\n    //this.bindEvents()\n    this.game = game\n    this.el = el\n  }\n\n  setupBoard() {\n    const ul = document.createElement('ul');\n\n    const grid = document.querySelector(\"figure.ttt\")\n    ul.setAttribute('id', \"grid\");\n    grid.appendChild(ul);\n    for (let row = 0; row < 3; row++){\n      for (let col = 0; col < 3; col++) {\n   \n        let li = document.createElement('li');\n        li.setAttribute('data-position', `[${row},${col}]`);\n\n        ul.appendChild(li);\n    }}\n  }\n  \n  bindEvents() {\n    // const positions = document.getElementsByTagName(\"ul\")\n    // positions.addEventListener(\"click\",(e) => this.handleClick(e))\n    \n  }\n\n  handleClick(e) {\n    //this.game.playMove()\n    console.log(e)\n    \n  }\n\n  makeMove(square) {\n\n  }\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack://w9d3/./src/ttt-view.js?");
 
 /***/ }),
 
