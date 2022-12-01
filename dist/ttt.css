@@ -2,26 +2,63 @@
     margin: 0;
     padding: 0;
     box-sizing: content-box;
+    font-family:sans-serif;
 }
-
+h1 {
+    text-align: center;
+    margin: 60px 0;
+}
+figure {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
 ul {
     display: flex;
     width: 312px;
     flex-wrap: wrap;
     list-style: none;
 }
+ul.gameOver li {
+    cursor: not-allowed;
+}
 
 li {
-    border: 2px solid #000;
-    background-color: gray;
+    border: 2px solid #666;
+    background-color: #ccc;
     width: 100px;
     height: 100px;
+    font-size:48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 250ms all;
 }
 
-li:hover {
+
+li.available:hover {
     background-color: yellow;
     cursor: pointer;
-    
-
+    border-color: yellow;
 }
 
+ul.gameOver li.available {
+    cursor: not-allowed;
+    background-color: #ccc;
+    border-color: #ccc;
+}
+
+.x {
+    background-color: dodgerblue;
+    border-color: dodgerblue;
+    color: #fff;
+}
+
+.o {
+    background-color: crimson;
+    border-color: crimson;
+    color: #fff;
+}
+.x:hover, .o:hover {
+    cursor: not-allowed;
+}
